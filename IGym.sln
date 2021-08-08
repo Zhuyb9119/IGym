@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGym", "IGym.csproj", "{253333B2-D669-45EE-94E0-36869A56F439}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGym", "src/IGym.App/IGym.csproj", "{253333B2-D669-45EE-94E0-36869A56F439}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
