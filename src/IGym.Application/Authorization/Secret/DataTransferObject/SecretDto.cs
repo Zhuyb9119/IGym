@@ -7,7 +7,7 @@ namespace IGym.Application.Authorization.Secret.DataTransferObject
     /// <summary>
     /// 用户登录实体
     /// </summary>
-    class SecretDto
+    public class SecretDto
     {
         /// <summary>
         /// 账号名

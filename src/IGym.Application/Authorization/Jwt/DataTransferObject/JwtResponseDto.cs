@@ -3,7 +3,7 @@
     /// <summary>
     /// Jwt 响应对象
     /// </summary>
-    class JwtResponseDto
+    public class JwtResponseDto
     {
         /// <summary>
         /// 访问 Token 值

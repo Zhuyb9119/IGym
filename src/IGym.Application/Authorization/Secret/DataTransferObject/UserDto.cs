@@ -5,7 +5,7 @@ namespace IGym.Application.Authorization.Secret.DataTransferObject
     /// <summary>
     /// 用户实体信息数据传输对象
     /// </summary>
-    class UserDto
+    public class UserDto
     {
         /// <summary>
         /// 主键

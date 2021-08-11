@@ -5,7 +5,7 @@ namespace IGym.Application.Authorization.Jwt.DataTransferObject
     /// <summary>
     /// Jwt 数据传输实体
     /// </summary>
-    class JwtAuthorizationDto
+    public class JwtAuthorizationDto
     {
         /// <summary>
         /// 授权时间

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IGym.Application.Authorization.Secret
 {
-    interface ISecretAppService
+    public interface ISecretAppService
     {
     }
 }
