@@ -31,6 +31,11 @@ namespace IGym.EFRepository.Impl
             base.OnConfiguring(optionsBuilder);
         }
 
+        public void AddService()
+        {
+            throw new NotImplementedException();
+        }
+
         public DbSet<User> Users { get; set; }
 
         public IDataRepository Context => _context;

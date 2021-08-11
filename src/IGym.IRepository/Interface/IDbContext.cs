@@ -8,5 +8,6 @@ namespace IGym.IRepository.Interface
     public interface IDbContext
     {
         IDataRepository Context { get; }
+        void AddService();
     }
 }
