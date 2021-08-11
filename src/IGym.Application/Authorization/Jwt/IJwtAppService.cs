@@ -6,6 +6,6 @@ namespace IGym.Application.Authorization.Jwt
 {
     interface IJwtAppService
     {
-
+        
     }
 }
