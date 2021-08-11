@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace IGym.Controllers
 {
@@ -17,10 +18,11 @@ namespace IGym.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly IHttpContextAccessor _httpContext;
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,IHttpContextAccessor httpContext)
         {
             _logger = logger;
+            _httpContext = httpContext;
         }
 
         [HttpGet]

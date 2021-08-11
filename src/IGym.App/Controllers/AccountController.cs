@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IGym.Controllers
 {
@@ -22,6 +23,11 @@ namespace IGym.Controllers
             return await Task.FromResult("请先登录");
         }
 
+        [Authorize]
+        public async Task<string> TestApi()
+        {
+            return await Task.Run(() => { return "登入后访问"; });
+        }
 
         public async Task<IActionResult> CookieLogin(string userName)
         {
