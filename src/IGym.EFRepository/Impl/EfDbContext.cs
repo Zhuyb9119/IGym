@@ -18,6 +18,9 @@ namespace IGym.EFRepository.Impl
             _context = new EFDataRepository(this);
         }
 
+        //OpenSSL SSL_read: Connection was reset, errno 10054
+        //git config lfs.https://github.com/Zhuyb9119/IGym.git/info/lfs.locksverify false
+        //https://github.com/Zhuyb9119/IGym.git
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
