@@ -11,10 +11,9 @@ namespace IGym.EFRepository.Impl
 {
     public class AddDbService : IAddDbService
     {
-        public void AddService(string connection, IServiceCollection services)
+        public void AddService(IServiceCollection services, string connection)
         {
             services.AddDbContextPool<EfDbContext>(options => { options.UseMySQL(connection); });
-            //services.AddSingleton<IDbContext, EfDbContext>();
         }
     }
 }
