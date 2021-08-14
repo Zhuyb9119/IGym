@@ -7,6 +7,6 @@ namespace IGym.IRepository.Interface
 {
     public interface IAddDbService
     {
-        void AddService(string connection,IServiceCollection services);
+        void AddService(IServiceCollection services, string connection);
     }
 }

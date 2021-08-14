@@ -13,19 +13,20 @@ namespace IGym.WebApi.Extension
 {
     public static class DbServiceExtension
     {
-        public static IServiceCollection AddService(this IServiceCollection serivce, OrmType ormType)
+        public static IServiceCollection AddDbService(this IServiceCollection serivce, string connection, OrmType ormType)
         {
-            DependencyInject(serivce, ormType);
+            DependencyInject(serivce, connection, ormType);
             return serivce;
         }
 
-        private static void DependencyInject(IServiceCollection serivce, OrmType ormType)
+        private static void DependencyInject(IServiceCollection serivce, string connection, OrmType ormType)
         {
             string dirPath = string.Empty;
+            string match = string.Empty;
             switch (ormType)
             {
                 case OrmType.EntityFramework:
-                    dirPath = "IGym.EFRepository";
+                    match = "EFRepository";
                     break;
                 case OrmType.Dapper:
                     break;
@@ -33,20 +34,26 @@ namespace IGym.WebApi.Extension
                     break;
             }
 
-            if (string.IsNullOrEmpty(dirPath)) return;
+           
 
-            var items = AssemblyLocator.AssemblyFinder(dirPath);
+#if DEBUG
+            dirPath = Path.Combine(Environment.CurrentDirectory, @"bin\Debug\netcoreapp3.1");
+#else
+            if (string.IsNullOrEmpty(dirPath)) return;
+#endif
+
+            var items = AssemblyLocator.AssemblyFinder(dirPath, match);
             foreach (var item in items)
             {
-                string typeName = Path.GetFileNameWithoutExtension(item);
-                object context = Activator.CreateInstance(item, typeName);
+                string typeName = "";
+                object context = Activator.CreateInstance(item, match);
 
                 if (context == null) continue;
 
                 if (context.GetType().IsAssignableFrom(typeof(IDbContext)))
                 {
                     //依赖注入(未完成)
-                    ((IDbContext)context).AddService();
+                    ((IDbContext)context).AddService(serivce, connection);
                 }
             }
         }

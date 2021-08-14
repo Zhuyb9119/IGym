@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Text;
+using IGym.IRepository.Model;
+using IGym.WebApi.Extension;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace IGym
@@ -24,8 +26,15 @@ namespace IGym
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            #region Db Dependency
+
+            //services.AddDbService(Configuration["Connection"],OrmType.EntityFramework);
+
+            #endregion
+
             #region JWT
-            
+
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecurityKey"]));
             services.AddSingleton(securityKey);
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

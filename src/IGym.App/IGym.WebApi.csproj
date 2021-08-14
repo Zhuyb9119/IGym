@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IGym.Application\IGym.Application.csproj" />
     <ProjectReference Include="..\IGym.EFRepository\IGym.EFRepository.csproj" />
     <ProjectReference Include="..\IGym.IRepository\IGym.IRepository.csproj" />
   </ItemGroup>
